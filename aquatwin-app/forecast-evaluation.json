@@ -1,0 +1,1191 @@
+{
+  "temperature": {
+    "key": "temperature",
+    "modelVersion": "water-scenario-1.0",
+    "design": "Rolling daily origins; only past 7d fitted; held-out endpoints at 24/48h within 10min; QC-filtered, exploratory.",
+    "metrics": {
+      "24": {
+        "count": 11,
+        "simulationMAE": 0.38404780623169255,
+        "persistenceMAE": 0.24545454545454506,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-05T22:57:02.971066",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453",
+          "2026-11-11T20:44:40.672045"
+        ]
+      },
+      "48": {
+        "count": 9,
+        "simulationMAE": 0.46775337491489644,
+        "persistenceMAE": 0.32222222222222247,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453"
+        ]
+      }
+    },
+    "records": [
+      {
+        "sourceTime": "2026-11-02T00:21:08.842142",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-02T00:21:08.842142",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T00:15:12.562956",
+            "actual": 29.2,
+            "simulation": 28.726292846584318,
+            "persistence": 29.1,
+            "elapsedHours": 23.901033333333334
+          },
+          "48": {
+            "actualTime": "2026-11-04T00:24:28.085598",
+            "actual": 29.3,
+            "simulation": 28.667408036360097,
+            "persistence": 29.1,
+            "elapsedHours": 48.055345277777775
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T00:00:07.018210",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T00:00:07.018210",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T23:54:16.481586",
+            "actual": 29.3,
+            "simulation": 28.858962401363385,
+            "persistence": 29.2,
+            "elapsedHours": 23.902628611111112
+          },
+          "48": {
+            "actualTime": "2026-11-05T00:03:37.112665",
+            "actual": 29.3,
+            "simulation": 28.790306410844515,
+            "persistence": 29.2,
+            "elapsedHours": 48.05835944444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T23:39:10.441370",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T23:39:10.441370",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-04T23:33:25.992206",
+            "actual": 29.4,
+            "simulation": 28.98855076622936,
+            "persistence": 29.3,
+            "elapsedHours": 23.904319722222223
+          },
+          "48": {
+            "actualTime": "2026-11-05T23:42:19.665956",
+            "actual": 29.3,
+            "simulation": 28.908671185829103,
+            "persistence": 29.3,
+            "elapsedHours": 48.05256222222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-04T23:18:20.428110",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-04T23:18:20.428110",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-05T23:12:08.525469",
+            "actual": 29.3,
+            "simulation": 29.10216262605874,
+            "persistence": 29.4,
+            "elapsedHours": 23.89669361111111
+          },
+          "48": {
+            "actualTime": "2026-11-06T23:16:49.228289",
+            "actual": 28.7,
+            "simulation": 29.015818708492745,
+            "persistence": 29.4,
+            "elapsedHours": 47.974666666666664
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-05T22:57:02.971066",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-05T22:57:02.971066",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-06T23:01:43.827434",
+            "actual": 28.7,
+            "simulation": 29.116889986042207,
+            "persistence": 29.3,
+            "elapsedHours": 24.078015555555556
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-06T22:31:33.003191",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-06T22:31:33.003191",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-07T22:25:08.559758",
+            "actual": 28.5,
+            "simulation": 29.103236301043758,
+            "persistence": 28.9,
+            "elapsedHours": 23.89321
+          },
+          "48": {
+            "actualTime": "2026-11-08T22:33:51.840106",
+            "actual": 28.9,
+            "simulation": 29.129694383689824,
+            "persistence": 28.9,
+            "elapsedHours": 48.03856583333334
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-07T22:10:03.163025",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-07T22:10:03.163025",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-08T22:03:40.914945",
+            "actual": 28.9,
+            "simulation": 28.95639412011638,
+            "persistence": 28.5,
+            "elapsedHours": 23.893819722222222
+          },
+          "48": {
+            "actualTime": "2026-11-09T22:12:41.727553",
+            "actual": 29,
+            "simulation": 29.082938342004002,
+            "persistence": 28.5,
+            "elapsedHours": 48.044045555555556
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-08T21:48:35.502988",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-08T21:48:35.502988",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-09T21:42:30.609600",
+            "actual": 29,
+            "simulation": 29.113801234302002,
+            "persistence": 29,
+            "elapsedHours": 23.898640833333335
+          },
+          "48": {
+            "actualTime": "2026-11-10T21:51:17.660796",
+            "actual": 28.4,
+            "simulation": 29.145929156565636,
+            "persistence": 29,
+            "elapsedHours": 48.04504388888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-09T21:27:25.150764",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-09T21:27:25.150764",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-10T21:21:06.713355",
+            "actual": 28.4,
+            "simulation": 29.13880986634786,
+            "persistence": 29.1,
+            "elapsedHours": 23.89487861111111
+          },
+          "48": {
+            "actualTime": "2026-11-11T21:29:57.537386",
+            "actual": 28.5,
+            "simulation": 29.14681645178671,
+            "persistence": 29.1,
+            "elapsedHours": 48.04232972222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-10T21:06:01.306453",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-10T21:06:01.306453",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-11T20:59:46.270262",
+            "actual": 28.5,
+            "simulation": 28.81612938602898,
+            "persistence": 28.5,
+            "elapsedHours": 23.895823333333333
+          },
+          "48": {
+            "actualTime": "2026-11-12T21:08:43.590482",
+            "actual": 28.3,
+            "simulation": 28.954968964728863,
+            "persistence": 28.5,
+            "elapsedHours": 48.04507888888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-11T20:44:40.672045",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-11T20:44:40.672045",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-12T20:38:32.473276",
+            "actual": 28.3,
+            "simulation": 28.755233614903233,
+            "persistence": 28.5,
+            "elapsedHours": 23.8977225
+          }
+        }
+      }
+    ]
+  },
+  "conductivity": {
+    "key": "conductivity",
+    "modelVersion": "water-scenario-1.0",
+    "design": "Rolling daily origins; only past 7d fitted; held-out endpoints at 24/48h within 10min; QC-filtered, exploratory.",
+    "metrics": {
+      "24": {
+        "count": 11,
+        "simulationMAE": 1.5932657144763085,
+        "persistenceMAE": 1.4363636363636354,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-05T22:57:02.971066",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453",
+          "2026-11-11T20:44:40.672045"
+        ]
+      },
+      "48": {
+        "count": 9,
+        "simulationMAE": 1.68435814253024,
+        "persistenceMAE": 2.1999999999999997,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453"
+        ]
+      }
+    },
+    "records": [
+      {
+        "sourceTime": "2026-11-02T00:21:08.842142",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-02T00:21:08.842142",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T00:15:12.562956",
+            "actual": 49.1,
+            "simulation": 49.089545831646674,
+            "persistence": 48.2,
+            "elapsedHours": 23.901033333333334
+          },
+          "48": {
+            "actualTime": "2026-11-04T00:24:28.085598",
+            "actual": 49.8,
+            "simulation": 49.14860455959898,
+            "persistence": 48.2,
+            "elapsedHours": 48.055345277777775
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T00:00:07.018210",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T00:00:07.018210",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T23:54:16.481586",
+            "actual": 49.6,
+            "simulation": 49.043238647531815,
+            "persistence": 48.8,
+            "elapsedHours": 23.902628611111112
+          },
+          "48": {
+            "actualTime": "2026-11-05T00:03:37.112665",
+            "actual": 49.2,
+            "simulation": 49.1039681461049,
+            "persistence": 48.8,
+            "elapsedHours": 48.05835944444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T23:39:10.441370",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T23:39:10.441370",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-04T23:33:25.992206",
+            "actual": 49.2,
+            "simulation": 49.07140631892364,
+            "persistence": 49.6,
+            "elapsedHours": 23.904319722222223
+          },
+          "48": {
+            "actualTime": "2026-11-05T23:42:19.665956",
+            "actual": 50.5,
+            "simulation": 49.12630716568601,
+            "persistence": 49.6,
+            "elapsedHours": 48.05256222222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-04T23:18:20.428110",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-04T23:18:20.428110",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-05T23:12:08.525469",
+            "actual": 51,
+            "simulation": 49.06275115399924,
+            "persistence": 49.1,
+            "elapsedHours": 23.89669361111111
+          },
+          "48": {
+            "actualTime": "2026-11-06T23:16:49.228289",
+            "actual": 51.1,
+            "simulation": 49.09504934816593,
+            "persistence": 49.1,
+            "elapsedHours": 47.974666666666664
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-05T22:57:02.971066",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-05T22:57:02.971066",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-06T23:01:43.827434",
+            "actual": 51.1,
+            "simulation": 49.1423321684842,
+            "persistence": 50.4,
+            "elapsedHours": 24.078015555555556
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-06T22:31:33.003191",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-06T22:31:33.003191",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-07T22:25:08.559758",
+            "actual": 51.2,
+            "simulation": 49.20089044543627,
+            "persistence": 51.1,
+            "elapsedHours": 23.89321
+          },
+          "48": {
+            "actualTime": "2026-11-08T22:33:51.840106",
+            "actual": 51.3,
+            "simulation": 49.238544741104946,
+            "persistence": 51.1,
+            "elapsedHours": 48.03856583333334
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-07T22:10:03.163025",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-07T22:10:03.163025",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-08T22:03:40.914945",
+            "actual": 51.3,
+            "simulation": 49.31843978057368,
+            "persistence": 51.2,
+            "elapsedHours": 23.893819722222222
+          },
+          "48": {
+            "actualTime": "2026-11-09T22:12:41.727553",
+            "actual": 48.1,
+            "simulation": 49.35789980241607,
+            "persistence": 51.2,
+            "elapsedHours": 48.044045555555556
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-08T21:48:35.502988",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-08T21:48:35.502988",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-09T21:42:30.609600",
+            "actual": 48.1,
+            "simulation": 49.77101370717674,
+            "persistence": 51.3,
+            "elapsedHours": 23.898640833333335
+          },
+          "48": {
+            "actualTime": "2026-11-10T21:51:17.660796",
+            "actual": 44.9,
+            "simulation": 49.79336153421294,
+            "persistence": 51.3,
+            "elapsedHours": 48.04504388888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-09T21:27:25.150764",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-09T21:27:25.150764",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-10T21:21:06.713355",
+            "actual": 44.8,
+            "simulation": 49.890139432054056,
+            "persistence": 48,
+            "elapsedHours": 23.89487861111111
+          },
+          "48": {
+            "actualTime": "2026-11-11T21:29:57.537386",
+            "actual": 47.3,
+            "simulation": 49.92659031110583,
+            "persistence": 48,
+            "elapsedHours": 48.04232972222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-10T21:06:01.306453",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-10T21:06:01.306453",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-11T20:59:46.270262",
+            "actual": 47.3,
+            "simulation": 49.24552297634883,
+            "persistence": 44.6,
+            "elapsedHours": 23.895823333333333
+          },
+          "48": {
+            "actualTime": "2026-11-12T21:08:43.590482",
+            "actual": 49.1,
+            "simulation": 49.29384559569808,
+            "persistence": 44.6,
+            "elapsedHours": 48.04507888888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-11T20:44:40.672045",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-11T20:44:40.672045",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-12T20:38:32.473276",
+            "actual": 49,
+            "simulation": 48.752148909744726,
+            "persistence": 47.2,
+            "elapsedHours": 23.8977225
+          }
+        }
+      }
+    ]
+  },
+  "pH": {
+    "key": "pH",
+    "modelVersion": "water-scenario-1.0",
+    "design": "Rolling daily origins; only past 7d fitted; held-out endpoints at 24/48h within 10min; QC-filtered, exploratory.",
+    "metrics": {
+      "24": {
+        "count": 8,
+        "simulationMAE": 0.184733892222399,
+        "persistenceMAE": 0.1050000000000002,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:54:16.481586",
+          "2026-11-04T23:33:25.992206",
+          "2026-11-05T23:12:08.525469",
+          "2026-11-06T22:46:38.425657",
+          "2026-11-07T22:25:08.559758",
+          "2026-11-11T11:11:08.964740"
+        ]
+      },
+      "48": {
+        "count": 6,
+        "simulationMAE": 0.33066805066108307,
+        "persistenceMAE": 0.18166666666666634,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:54:16.481586",
+          "2026-11-04T23:33:25.992206",
+          "2026-11-05T23:12:08.525469",
+          "2026-11-08T22:03:40.914945"
+        ]
+      }
+    },
+    "records": [
+      {
+        "sourceTime": "2026-11-02T00:21:08.842142",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-02T00:21:08.842142",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T00:15:12.562956",
+            "actual": 7.65,
+            "simulation": 7.720759927198861,
+            "persistence": 7.74,
+            "elapsedHours": 23.901033333333334
+          },
+          "48": {
+            "actualTime": "2026-11-04T00:24:28.085598",
+            "actual": 8.08,
+            "simulation": 7.718323447765358,
+            "persistence": 7.74,
+            "elapsedHours": 48.055345277777775
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T00:00:07.018210",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T00:00:07.018210",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T23:54:16.481586",
+            "actual": 8.05,
+            "simulation": 7.707322717840893,
+            "persistence": 7.65,
+            "elapsedHours": 23.902628611111112
+          },
+          "48": {
+            "actualTime": "2026-11-05T00:03:37.112665",
+            "actual": 8.18,
+            "simulation": 7.718049168774335,
+            "persistence": 7.65,
+            "elapsedHours": 48.05835944444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T23:54:16.481586",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T23:54:16.481586",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-04T23:48:31.538649",
+            "actual": 8.18,
+            "simulation": 7.868419206628608,
+            "persistence": 8.05,
+            "elapsedHours": 23.9041825
+          },
+          "48": {
+            "actualTime": "2026-11-05T23:57:25.203649",
+            "actual": 8.21,
+            "simulation": 7.797982953595901,
+            "persistence": 8.05,
+            "elapsedHours": 48.05242277777778
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-04T23:33:25.992206",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-04T23:33:25.992206",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-05T23:27:14.064809",
+            "actual": 8.21,
+            "simulation": 8.029274236989108,
+            "persistence": 8.18,
+            "elapsedHours": 23.896686666666668
+          },
+          "48": {
+            "actualTime": "2026-11-06T23:31:54.620332",
+            "actual": 8.19,
+            "simulation": 7.934994314250451,
+            "persistence": 8.18,
+            "elapsedHours": 47.97461888888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-05T23:12:08.525469",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-05T23:12:08.525469",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-06T23:16:49.228289",
+            "actual": 8.19,
+            "simulation": 8.060065491209743,
+            "persistence": 8.21,
+            "elapsedHours": 24.077973055555557
+          },
+          "48": {
+            "actualTime": "2026-11-07T23:10:24.836496",
+            "actual": 8.25,
+            "simulation": 7.968750086351237,
+            "persistence": 8.21,
+            "elapsedHours": 47.9711975
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-06T22:46:38.425657",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-06T22:46:38.425657",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-07T22:40:13.951856",
+            "actual": 8.25,
+            "simulation": 7.997265222501038,
+            "persistence": 8.15,
+            "elapsedHours": 23.893201666666666
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-07T22:25:08.559758",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-07T22:25:08.559758",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-08T22:18:46.315746",
+            "actual": 8.29,
+            "simulation": 8.113139570539227,
+            "persistence": 8.25,
+            "elapsedHours": 23.893821111111112
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-08T22:03:40.914945",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-08T22:03:40.914945",
+        "horizons": {
+          "48": {
+            "actualTime": "2026-11-10T22:06:23.230234",
+            "actual": 8.28,
+            "simulation": 8.067891725296219,
+            "persistence": 8.29,
+            "elapsedHours": 48.04508777777778
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-10T02:59:25.373484",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-10T02:59:25.373484",
+        "horizons": {}
+      },
+      {
+        "sourceTime": "2026-11-11T11:11:08.964740",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-11T11:11:08.964740",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-12T11:04:58.500363",
+            "actual": 8.21,
+            "simulation": 8.197402343711053,
+            "persistence": 8.18,
+            "elapsedHours": 23.897093333333334
+          }
+        }
+      }
+    ]
+  },
+  "DO": {
+    "key": "DO",
+    "modelVersion": "water-scenario-1.0",
+    "design": "Rolling daily origins; only past 7d fitted; held-out endpoints at 24/48h within 10min; QC-filtered, exploratory.",
+    "metrics": {
+      "24": {
+        "count": 11,
+        "simulationMAE": 0.1344925045012331,
+        "persistenceMAE": 0.14909090909090914,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-05T22:57:02.971066",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453",
+          "2026-11-11T20:44:40.672045"
+        ]
+      },
+      "48": {
+        "count": 10,
+        "simulationMAE": 0.10773442801495711,
+        "persistenceMAE": 0.137,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-05T22:57:02.971066",
+          "2026-11-06T22:31:33.003191",
+          "2026-11-07T22:10:03.163025",
+          "2026-11-08T21:48:35.502988",
+          "2026-11-09T21:27:25.150764",
+          "2026-11-10T21:06:01.306453"
+        ]
+      }
+    },
+    "records": [
+      {
+        "sourceTime": "2026-11-02T00:21:08.842142",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-02T00:21:08.842142",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T00:15:12.562956",
+            "actual": 5.93,
+            "simulation": 6.089091459014625,
+            "persistence": 6.03,
+            "elapsedHours": 23.901033333333334
+          },
+          "48": {
+            "actualTime": "2026-11-04T00:24:28.085598",
+            "actual": 6.03,
+            "simulation": 6.092646885276713,
+            "persistence": 6.03,
+            "elapsedHours": 48.055345277777775
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T00:00:07.018210",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T00:00:07.018210",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T23:54:16.481586",
+            "actual": 6,
+            "simulation": 6.070952208300198,
+            "persistence": 5.94,
+            "elapsedHours": 23.902628611111112
+          },
+          "48": {
+            "actualTime": "2026-11-05T00:03:37.112665",
+            "actual": 5.98,
+            "simulation": 6.07610447479407,
+            "persistence": 5.94,
+            "elapsedHours": 48.05835944444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T23:39:10.441370",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T23:39:10.441370",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-04T23:33:25.992206",
+            "actual": 6.01,
+            "simulation": 6.048980372099774,
+            "persistence": 6.02,
+            "elapsedHours": 23.904319722222223
+          },
+          "48": {
+            "actualTime": "2026-11-05T23:42:19.665956",
+            "actual": 6.23,
+            "simulation": 6.053395652105472,
+            "persistence": 6.02,
+            "elapsedHours": 48.05256222222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-04T23:18:20.428110",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-04T23:18:20.428110",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-05T23:12:08.525469",
+            "actual": 6.35,
+            "simulation": 6.034817683987422,
+            "persistence": 5.96,
+            "elapsedHours": 23.89669361111111
+          },
+          "48": {
+            "actualTime": "2026-11-06T23:16:49.228289",
+            "actual": 6.33,
+            "simulation": 6.037792663180244,
+            "persistence": 5.96,
+            "elapsedHours": 47.974666666666664
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-05T22:57:02.971066",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-05T22:57:02.971066",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-06T23:01:43.827434",
+            "actual": 6.47,
+            "simulation": 6.041782314338508,
+            "persistence": 6.18,
+            "elapsedHours": 24.078015555555556
+          },
+          "48": {
+            "actualTime": "2026-11-07T22:55:19.346518",
+            "actual": 6.11,
+            "simulation": 6.03837868594951,
+            "persistence": 6.18,
+            "elapsedHours": 47.97121527777778
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-06T22:31:33.003191",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-06T22:31:33.003191",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-07T22:25:08.559758",
+            "actual": 6.16,
+            "simulation": 6.0690953684295845,
+            "persistence": 6.48,
+            "elapsedHours": 23.89321
+          },
+          "48": {
+            "actualTime": "2026-11-08T22:33:51.840106",
+            "actual": 6.03,
+            "simulation": 6.071825025513702,
+            "persistence": 6.48,
+            "elapsedHours": 48.03856583333334
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-07T22:10:03.163025",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-07T22:10:03.163025",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-08T22:03:40.914945",
+            "actual": 6.07,
+            "simulation": 6.075105465126935,
+            "persistence": 6.11,
+            "elapsedHours": 23.893819722222222
+          },
+          "48": {
+            "actualTime": "2026-11-09T22:12:41.727553",
+            "actual": 5.95,
+            "simulation": 6.078547072689107,
+            "persistence": 6.11,
+            "elapsedHours": 48.044045555555556
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-08T21:48:35.502988",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-08T21:48:35.502988",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-09T21:42:30.609600",
+            "actual": 5.93,
+            "simulation": 6.074014115840757,
+            "persistence": 6.04,
+            "elapsedHours": 23.898640833333335
+          },
+          "48": {
+            "actualTime": "2026-11-10T21:51:17.660796",
+            "actual": 6.05,
+            "simulation": 6.077314429096315,
+            "persistence": 6.04,
+            "elapsedHours": 48.04504388888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-09T21:27:25.150764",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-09T21:27:25.150764",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-10T21:21:06.713355",
+            "actual": 6.07,
+            "simulation": 6.069359293665062,
+            "persistence": 5.9,
+            "elapsedHours": 23.89487861111111
+          },
+          "48": {
+            "actualTime": "2026-11-11T21:29:57.537386",
+            "actual": 5.94,
+            "simulation": 6.072768117908532,
+            "persistence": 5.9,
+            "elapsedHours": 48.04232972222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-10T21:06:01.306453",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-10T21:06:01.306453",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-11T20:59:46.270262",
+            "actual": 5.92,
+            "simulation": 6.064321079826812,
+            "persistence": 6,
+            "elapsedHours": 23.895823333333333
+          },
+          "48": {
+            "actualTime": "2026-11-12T21:08:43.590482",
+            "actual": 6.02,
+            "simulation": 6.067705276106359,
+            "persistence": 6,
+            "elapsedHours": 48.04507888888889
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-11T20:44:40.672045",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-11T20:44:40.672045",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-12T20:38:32.473276",
+            "actual": 5.98,
+            "simulation": 6.062007509725039,
+            "persistence": 5.91,
+            "elapsedHours": 23.8977225
+          }
+        }
+      }
+    ]
+  },
+  "turbidity": {
+    "key": "turbidity",
+    "modelVersion": "water-scenario-1.0",
+    "design": "Rolling daily origins; only past 7d fitted; held-out endpoints at 24/48h within 10min; QC-filtered, exploratory.",
+    "metrics": {
+      "24": {
+        "count": 7,
+        "simulationMAE": 0.32742883725858135,
+        "persistenceMAE": 0.1857142857142857,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-04T23:18:20.428110",
+          "2026-11-07T01:32:37.845241",
+          "2026-11-09T11:23:39.949675",
+          "2026-11-11T12:41:41.984900"
+        ]
+      },
+      "48": {
+        "count": 6,
+        "simulationMAE": 0.3739043682783523,
+        "persistenceMAE": 0.2833333333333334,
+        "eligibleOriginTimes": [
+          "2026-11-02T00:21:08.842142",
+          "2026-11-03T00:00:07.018210",
+          "2026-11-03T23:39:10.441370",
+          "2026-11-05T22:57:02.971066",
+          "2026-11-08T01:11:08.103712",
+          "2026-11-10T11:02:21.132812"
+        ]
+      }
+    },
+    "records": [
+      {
+        "sourceTime": "2026-11-02T00:21:08.842142",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-02T00:21:08.842142",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T00:15:12.562956",
+            "actual": 5,
+            "simulation": 4.7332385671672546,
+            "persistence": 5,
+            "elapsedHours": 23.901033333333334
+          },
+          "48": {
+            "actualTime": "2026-11-04T00:24:28.085598",
+            "actual": 5.3,
+            "simulation": 4.729392784838411,
+            "persistence": 5,
+            "elapsedHours": 48.055345277777775
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T00:00:07.018210",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T00:00:07.018210",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-03T23:54:16.481586",
+            "actual": 5.3,
+            "simulation": 4.783267622593894,
+            "persistence": 5,
+            "elapsedHours": 23.902628611111112
+          },
+          "48": {
+            "actualTime": "2026-11-05T00:03:37.112665",
+            "actual": 5,
+            "simulation": 4.778116897552624,
+            "persistence": 5,
+            "elapsedHours": 48.05835944444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-03T23:39:10.441370",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-03T23:39:10.441370",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-04T23:33:25.992206",
+            "actual": 5.3,
+            "simulation": 4.860939148958795,
+            "persistence": 5.3,
+            "elapsedHours": 23.904319722222223
+          },
+          "48": {
+            "actualTime": "2026-11-05T23:42:19.665956",
+            "actual": 5.6,
+            "simulation": 4.8557836552067855,
+            "persistence": 5.3,
+            "elapsedHours": 48.05256222222222
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-04T23:18:20.428110",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-04T23:18:20.428110",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-05T23:12:08.525469",
+            "actual": 5.3,
+            "simulation": 4.934366960292868,
+            "persistence": 5,
+            "elapsedHours": 23.89669361111111
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-05T22:57:02.971066",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-05T22:57:02.971066",
+        "horizons": {
+          "48": {
+            "actualTime": "2026-11-07T22:55:19.346518",
+            "actual": 4.6,
+            "simulation": 4.998398025623837,
+            "persistence": 5.3,
+            "elapsedHours": 47.97121527777778
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-07T01:32:37.845241",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-07T01:32:37.845241",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-08T01:26:13.560693",
+            "actual": 4.6,
+            "simulation": 4.932499006482444,
+            "persistence": 4.6,
+            "elapsedHours": 23.893254166666665
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-08T01:11:08.103712",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-08T01:11:08.103712",
+        "horizons": {
+          "48": {
+            "actualTime": "2026-11-10T01:13:47.117012",
+            "actual": 5,
+            "simulation": 4.952301293495739,
+            "persistence": 5,
+            "elapsedHours": 48.04417055555555
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-09T11:23:39.949675",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-09T11:23:39.949675",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-10T11:17:26.537052",
+            "actual": 5,
+            "simulation": 4.898094241438397,
+            "persistence": 5.3,
+            "elapsedHours": 23.896274444444444
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-10T11:02:21.132812",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-10T11:02:21.132812",
+        "horizons": {
+          "48": {
+            "actualTime": "2026-11-12T11:04:58.500363",
+            "actual": 4.6,
+            "simulation": 4.860622815139836,
+            "persistence": 5,
+            "elapsedHours": 48.043713333333336
+          }
+        }
+      },
+      {
+        "sourceTime": "2026-11-11T12:41:41.984900",
+        "modelVersion": "water-scenario-1.0",
+        "trainingEnd": "2026-11-11T12:41:41.984900",
+        "horizons": {
+          "24": {
+            "actualTime": "2026-11-12T12:35:31.847874",
+            "actual": 4.6,
+            "simulation": 4.869409394778834,
+            "persistence": 5,
+            "elapsedHours": 23.897184166666666
+          }
+        }
+      }
+    ]
+  }
+}

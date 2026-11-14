@@ -1,0 +1,94 @@
+{
+  "thingId": "aquatwin:nuoibien-2",
+  "policyId": "aquatwin:nuoibien-2-policy",
+  "attributes": {
+    "site": "NuoiBien_2",
+    "device": "nuoibienvien3",
+    "timezone": "UTC+07:00",
+    "sourceMapping": "salinity=conductivity_mS_cm"
+  },
+  "features": {
+    "temperature": {
+      "properties": {
+        "observed": {
+          "value": 28.2,
+          "ts": "2026-11-12T23:54:44.857407",
+          "unit": "°C",
+          "qualityFlag": 1
+        },
+        "last_good": {
+          "value": 28.2,
+          "ts": "2026-11-12T23:54:44.857407"
+        }
+      }
+    },
+    "conductivity": {
+      "properties": {
+        "observed": {
+          "value": 49.9,
+          "ts": "2026-11-12T23:54:44.857407",
+          "unit": "mS/cm",
+          "qualityFlag": 1
+        },
+        "last_good": {
+          "value": 49.9,
+          "ts": "2026-11-12T23:54:44.857407"
+        }
+      }
+    },
+    "pH": {
+      "properties": {
+        "observed": {
+          "value": 8.28,
+          "ts": "2026-11-12T23:54:44.857407",
+          "unit": "",
+          "qualityFlag": 3
+        },
+        "last_good": {
+          "value": 8.28,
+          "ts": "2026-11-12T22:39:17.048789"
+        }
+      }
+    },
+    "DO": {
+      "properties": {
+        "observed": {
+          "value": 6.07,
+          "ts": "2026-11-12T23:54:44.857407",
+          "unit": "mg/L",
+          "qualityFlag": 1
+        },
+        "last_good": {
+          "value": 6.07,
+          "ts": "2026-11-12T23:54:44.857407"
+        }
+      }
+    },
+    "turbidity": {
+      "properties": {
+        "observed": {
+          "value": 4.6,
+          "ts": "2026-11-12T23:54:44.857407",
+          "unit": "NTU",
+          "qualityFlag": 3
+        },
+        "last_good": {
+          "value": 4.6,
+          "ts": "2026-11-12T23:24:33.707002"
+        }
+      }
+    },
+    "health": {
+      "properties": {
+        "mode": "historical-replay",
+        "sourceTime": "2026-11-12T23:54:44.857407",
+        "deviceError": null,
+        "depth_m": null,
+        "calibration_ref": null,
+        "unit_id": null,
+        "spikeStatus": "pending_next_observation",
+        "qcVersion": "qc-ui-0.2-provisional"
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "policyId": "aquatwin:nuoibien-2-policy",
+  "entries": {
+    "owner": {
+      "subjects": {
+        "nginx:YOUR_AUTHENTICATED_USER": {
+          "type": "Local operator"
+        }
+      },
+      "resources": {
+        "thing:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "revoke": []
+        },
+        "policy:/": {
+          "grant": [
+            "READ",
+            "WRITE"
+          ],
+          "revoke": []
+        }
+      }
+    },
+    "qc_ingest": {
+      "subjects": {
+        "aquatwin:ingest": {
+          "type": "QC MQTT source"
+        }
+      },
+      "resources": {
+        "thing:/features": {
+          "grant": [
+            "WRITE"
+          ],
+          "revoke": []
+        }
+      }
+    },
+    "observer": {
+      "subjects": {
+        "aquatwin:observer": {
+          "type": "Read-only observer"
+        }
+      },
+      "resources": {
+        "thing:/": {
+          "grant": [
+            "READ"
+          ],
+          "revoke": []
+        }
+      }
+    }
+  }
+}

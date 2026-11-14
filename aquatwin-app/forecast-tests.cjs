@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const F=require('./dist/forecast-core.js'),C=require('./dist/core.js'),d=require('./dist/data.json');
+const n=d.rows.length-1;
+const a=F.simulate(d,n,'DO',{hours:48}),b=F.simulate(d,n,'DO',{hours:48});
+assert(a.ok);assert.equal(a.points.length,193);assert.deepEqual(a,b);assert.equal(a.stateKind,'simulated');
+assert.equal(a.points[0].base,d.rows[n].values.DO);assert.equal(a.points[96].hours,24);assert.equal(a.points[192].hours,48);
+assert.equal(C.stamp(a.points.at(-1).ts)-C.stamp(a.sourceTime),48*3600000);
+assert(a.points.every(p=>p.scenarioP10<=p.scenarioP90&&Number.isFinite(p.base)));
+const shift=F.simulate(d,n,'DO',{hours:48,ratePerDay:-.4});assert(Math.abs(shift.points.at(-1).scenario-a.points.at(-1).base+.8)<1e-10);
+assert(Math.abs(shift.points.at(-1).scenarioP10-a.points.at(-1).baseP10+.8)<1e-10);
+const origin=700,trim={...d,rows:d.rows.slice(0,origin+1)};
+assert.deepEqual(F.simulate(d,origin,'DO'),F.simulate(trim,origin,'DO'),'future data leakage');
+assert.equal(F.simulate(d,10,'DO').ok,false);
+const missing=d.rows.findIndex(r=>r.error);assert.equal(F.simulate(d,missing,'DO',{allowSuspect:true}).ok,false);
+assert.equal(F.simulate(d,n,'pH').ok,false);assert.equal(F.simulate(d,n,'pH',{allowSuspect:true}).ok,true);
+assert.equal(F.simulate(d,n,'DO',{hours:72}).ok,false);assert.equal(F.simulate(d,n,'DO',{ratePerDay:Infinity}).ok,false);
+const before=JSON.stringify(d);F.simulate(d,n,'DO');assert.equal(JSON.stringify(d),before);
+const report=Object.fromEntries(C.keys.map(k=>[k,F.evaluate(d,k)]));
+for(const ev of Object.values(report))for(const r of ev.records){assert(C.stamp(r.trainingEnd)<=C.stamp(r.sourceTime));for(const h of [24,48])if(r.horizons[h])assert(Math.abs(r.horizons[h].elapsedHours-h)<=1/6)}
+fs.writeFileSync('forecast-evaluation.json',JSON.stringify(report,null,2));
+console.log('PASS: 24/48h timing, reproducibility, causal fit, scenario shift, QC/missing gates, input validation, immutability and rolling-origin evaluation.');

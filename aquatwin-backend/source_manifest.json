@@ -1,0 +1,15 @@
+{
+  "origin": "aquatwin-app",
+  "copied_source_sha256": {
+    "server.py": "f0b601289f4d7a2241dfcc3436d76b4e9fc565dc81a44b946835dfed8ab75dc4",
+    "ditto_adapter.py": "a002b2ff993ee0bf0f16e8641d95c584766e3fdf90dd36a2a462efe92fb1764e",
+    "prepare_data.py": "ea1de00b5f14ebacf909917cbac780ff1821754ca341c09461360b8b4d32f687",
+    "test_bridge.py": "70169d3894be0b646d83d2ec01d48d0c253d04debb19297b5b267d2348e1c7ee"
+  },
+  "changes": [
+    "Independent data paths",
+    "Backend-only HTTP root and 404 behavior",
+    "Default port 8770 to avoid the existing app"
+  ],
+  "data_records": 1333
+}

@@ -1,0 +1,9 @@
+.browser-qa/
+.edge-qa/
+browser-qa.log
+qa-*.png
+*.log
+__pycache__/
+.sites-checkout*/
+*.tar.gz
+.runtime/

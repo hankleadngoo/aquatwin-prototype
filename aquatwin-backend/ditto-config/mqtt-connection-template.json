@@ -1,0 +1,32 @@
+{
+  "id": "aquatwin-wqi-mqtt",
+  "name": "AquaTwin QC to Ditto",
+  "connectionType": "mqtt",
+  "connectionStatus": "closed",
+  "uri": "tcp://host.docker.internal:1883",
+  "failoverEnabled": true,
+  "sources": [
+    {
+      "addresses": [
+        "aquatwin/wqi/normalized"
+      ],
+      "consumerCount": 1,
+      "qos": 1,
+      "authorizationContext": [
+        "aquatwin:ingest"
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "address": "aquatwin/wqi/changes",
+      "topics": [
+        "_/_/things/twin/events"
+      ],
+      "qos": 1,
+      "authorizationContext": [
+        "aquatwin:observer"
+      ]
+    }
+  ]
+}

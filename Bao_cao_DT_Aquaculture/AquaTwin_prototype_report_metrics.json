@@ -1,0 +1,145 @@
+{
+  "qc": {
+    "1": 5757,
+    "2": 0,
+    "3": 820,
+    "4": 73,
+    "9": 15
+  },
+  "eventPoints": 897,
+  "latest": {
+    "thingId": "aquatwin:nuoibien-2",
+    "attributes": {
+      "site": "NuoiBien_2",
+      "device": "nuoibienvien3",
+      "timezone": "UTC+07:00",
+      "sourceMapping": "salinity=conductivity_mS_cm"
+    },
+    "features": {
+      "temperature": {
+        "properties": {
+          "observed": {
+            "value": 28.2,
+            "ts": "2026-11-12T23:54:44.857407",
+            "unit": "°C",
+            "qualityFlag": 1
+          },
+          "last_good": {
+            "value": 28.2,
+            "ts": "2026-11-12T23:54:44.857407"
+          }
+        }
+      },
+      "conductivity": {
+        "properties": {
+          "observed": {
+            "value": 49.9,
+            "ts": "2026-11-12T23:54:44.857407",
+            "unit": "mS/cm",
+            "qualityFlag": 1
+          },
+          "last_good": {
+            "value": 49.9,
+            "ts": "2026-11-12T23:54:44.857407"
+          }
+        }
+      },
+      "pH": {
+        "properties": {
+          "observed": {
+            "value": 8.28,
+            "ts": "2026-11-12T23:54:44.857407",
+            "unit": "",
+            "qualityFlag": 3
+          },
+          "last_good": {
+            "value": 8.28,
+            "ts": "2026-11-12T22:39:17.048789"
+          }
+        }
+      },
+      "DO": {
+        "properties": {
+          "observed": {
+            "value": 6.07,
+            "ts": "2026-11-12T23:54:44.857407",
+            "unit": "mg/L",
+            "qualityFlag": 1
+          },
+          "last_good": {
+            "value": 6.07,
+            "ts": "2026-11-12T23:54:44.857407"
+          }
+        }
+      },
+      "turbidity": {
+        "properties": {
+          "observed": {
+            "value": 4.6,
+            "ts": "2026-11-12T23:54:44.857407",
+            "unit": "NTU",
+            "qualityFlag": 3
+          },
+          "last_good": {
+            "value": 4.6,
+            "ts": "2026-11-12T23:24:33.707002"
+          }
+        }
+      },
+      "health": {
+        "properties": {
+          "mode": "historical-replay",
+          "sourceTime": "2026-11-12T23:54:44.857407",
+          "deviceError": null,
+          "depth_m": null,
+          "calibration_ref": null,
+          "unit_id": null,
+          "spikeStatus": "pending_next_observation",
+          "qcVersion": "qc-ui-0.2-provisional"
+        }
+      }
+    }
+  },
+  "backtests": {
+    "temperature": {
+      "count": 396,
+      "mae": 0.025505050505050624,
+      "rmse": 0.05198095999517726,
+      "bias": 0.0022727272727272783,
+      "start": "2026-11-08T19:32:46.819639",
+      "end": "2026-11-12T23:54:44.857407"
+    },
+    "conductivity": {
+      "count": 363,
+      "mae": 0.14517906336088154,
+      "rmse": 0.30183095993396003,
+      "bias": -0.11377410468319557,
+      "start": "2026-11-08T19:32:46.819639",
+      "end": "2026-11-12T23:54:44.857407"
+    },
+    "pH": {
+      "count": 208,
+      "mae": 0.008413461538461538,
+      "rmse": 0.02516293061078297,
+      "bias": -0.0030288461538461662,
+      "start": "2026-11-08T19:32:46.819639",
+      "end": "2026-11-12T23:54:44.857407"
+    },
+    "DO": {
+      "count": 397,
+      "mae": 0.03518891687657428,
+      "rmse": 0.06181755882712519,
+      "bias": -0.0013853904282115864,
+      "start": "2026-11-08T19:32:46.819639",
+      "end": "2026-11-12T23:54:44.857407"
+    },
+    "turbidity": {
+      "count": 233,
+      "mae": 0.0656652360515022,
+      "rmse": 0.1576381470575106,
+      "bias": 0.010729613733905583,
+      "start": "2026-11-08T19:32:46.819639",
+      "end": "2026-11-12T23:54:44.857407"
+    }
+  }
+}
