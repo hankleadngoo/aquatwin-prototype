@@ -1,7 +1,7 @@
 """Read-only normalization and provisional QC. No biological alarm thresholds."""
 from pathlib import Path
 import csv,json,hashlib,statistics,math
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 ROOT=Path(__file__).resolve().parent
 SOURCE=ROOT/'data/source.csv'
@@ -21,7 +21,7 @@ def build():
  raw.sort(key=lambda r:r['ts']);rows=[]
  for r in raw:
   values={k:(float(r.get('salinity' if k=='conductivity' else k)) if r.get('salinity' if k=='conductivity' else k) else None) for k in PARAMS}
-  rows.append(dict(ts=r['ts'],time=datetime.fromisoformat(r['ts']).timestamp(),site=r['site'],device=r['device'],values=values,error=r['sensor_error'],qc={},id=hashlib.sha256((r['site']+r['device']+r['ts']).encode()).hexdigest()[:24]))
+  rows.append(dict(ts=r['ts'],time=datetime.fromisoformat(r['ts']).replace(tzinfo=timezone(timedelta(hours=7))).timestamp(),site=r['site'],device=r['device'],values=values,error=r['sensor_error'],qc={},id=hashlib.sha256((r['site']+r['device']+r['ts']).encode()).hexdigest()[:24]))
  # Epoch values are used only for elapsed intervals; source labels keep local clock text.
  for i,r in enumerate(rows):
   r['gapMinutes']=(r['time']-rows[i-1]['time'])/60 if i else 0

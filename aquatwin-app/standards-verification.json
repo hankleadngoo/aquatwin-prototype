@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-17",
+  "version": "1.5.0",
+  "claim": "Project implementation tests, not normative ISO conformity assessment",
+  "browserVerification": {
+    "browser": "Microsoft Edge headless",
+    "test": "standards-browser.cjs",
+    "status": "passed",
+    "coverage": "profile loading, enriched twin, tools navigation, architecture page, stale label, 390px mobile layout, overview regression"
+  },
+  "tests": [
+    {
+      "folder": "aquatwin-app",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "test_bridge.py",
+        "test_standards.py"
+      ],
+      "exitCode": 0,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 2.121s\n\nOK\n"
+    },
+    {
+      "folder": "aquatwin-app",
+      "command": [
+        "node",
+        "tests.cjs"
+      ],
+      "exitCode": 0,
+      "output": "PASS: source mapping, chronology, missing values, no look-ahead at replay cursor, last_good, events, QC counts, backtest split, escaping and timezone.\n"
+    },
+    {
+      "folder": "aquatwin-app",
+      "command": [
+        "node",
+        "forecast-tests.cjs"
+      ],
+      "exitCode": 0,
+      "output": "PASS: 24/48h timing, reproducibility, causal fit, scenario shift, QC/missing gates, input validation, immutability and rolling-origin evaluation.\n"
+    },
+    {
+      "folder": "aquatwin-app",
+      "command": [
+        "node",
+        "english-tests.cjs"
+      ],
+      "exitCode": 0,
+      "output": "PASS English: UI and model messages have no Vietnamese diacritics, document language and parameter/QC labels are English.\n"
+    },
+    {
+      "folder": "aquatwin-app",
+      "command": [
+        "node",
+        "standards-tests.cjs"
+      ],
+      "exitCode": 0,
+      "output": "PASS: canonical target, state provenance, unknown metadata, identity/unit rejection, research-only model gate and UI syntax.\n"
+    },
+    {
+      "folder": "aquatwin-backend",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "test_bridge.py",
+        "test_standards.py"
+      ],
+      "exitCode": 0,
+      "output": "...................\n----------------------------------------------------------------------\nRan 19 tests in 2.068s\n\nOK\n"
+    }
+  ],
+  "missingEvidence": [
+    "Full licensed ISO clause review",
+    "Independent reviewer signoff",
+    "Field metadata/calibration",
+    "External aquatwin-prototype source and service reports"
+  ]
+}

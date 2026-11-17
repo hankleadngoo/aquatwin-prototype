@@ -63,3 +63,8 @@ Trạng thái bàn giao: chưa upload source hoặc deploy Sites. Automatic appr
 ## C?p nh?t 1.1 ? Ditto
 
 ??c DITTO_INTEGRATION.md. C? gateway c?c b? th?c: ki?m tra, create-only Policy/Thing, ??ng b? c? ETag, ??c l?i. Ch?a c? m?y ch? Ditto/Docker th?c ?? ki?m th? t?ch h?p. Nh?ng m? t? phi?n b?n 1.0 ? tr?n v? static-only ?? ???c thay th? b?i server.py khi ch?y b?ng launcher m?i. Ph?m vi quan tr?c/QC v? c?c gi?i h?n sinh h?c kh?ng ??i.
+
+
+## Architecture update 2026-11-17
+
+See `ARCHITECTURE_ALIGNMENT.md`, `standards-traceability.csv`, `openapi.json` and `schemas/observation.schema.json`. Versioned target profile: `dist/architecture-profile.json`. Research-only alignment with ISO/IEC 30188 and adapted ISO 23247 patterns; no complete conformity claim. New read-only APIs: `/api/architecture`, `/api/observations?cursor=100`, `/api/state/health`. Run `python -m unittest test_bridge.py test_standards.py`. The local web app adds Architecture & evidence under Tools & connections. No hosted deployment has been performed for this update.

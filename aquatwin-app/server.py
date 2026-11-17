@@ -3,11 +3,12 @@ import argparse,base64,json,os,threading,urllib.request,urllib.error
 from datetime import datetime
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
+import standards
 
 ROOT=Path(__file__).resolve().parent
 DATA=json.loads((ROOT/'dist/data.json').read_text(encoding='utf-8'))
-THING_ID='aquatwin:nuoibien-2';POLICY_ID='aquatwin:nuoibien-2-policy';LOCK=threading.Lock()
+THING_ID=standards.PROFILE['twinId'];POLICY_ID='aquatwin:nuoibien-2-policy';LOCK=threading.Lock()
 class BridgeError(Exception):
  def __init__(self,message,status=400):self.message=message;self.status=status
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -27,7 +28,7 @@ def snapshot(cursor):
     r=DATA['rows'][i];good={'value':r['values'][key],'ts':r['ts']};break
   features[key]={'properties':{'observed':{'value':row['values'][key],'ts':row['ts'],'unit':config['unit'],'qualityFlag':quality(cursor,key,cursor)},'last_good':good}}
  features['health']={'properties':{'mode':'historical-replay','sourceTime':row['ts'],'deviceError':row['error'] or None,'depth_m':None,'calibration_ref':None,'unit_id':None,'spikeStatus':'pending_next_observation','qcVersion':DATA['meta']['qcVersion']}}
- return {'thingId':THING_ID,'policyId':POLICY_ID,'attributes':{'site':row['site'],'device':row['device'],'timezone':'UTC+07:00','sourceMapping':'salinity=conductivity_mS_cm'},'features':features}
+ return standards.enrich({'thingId':THING_ID,'policyId':POLICY_ID,'attributes':{'site':row['site'],'device':row['device'],'timezone':'UTC+07:00','sourceMapping':'salinity=conductivity_mS_cm'},'features':features}, DATA, cursor, quality)
 def policy(subject):
  if not subject or any(c in subject for c in '\r\n'):raise BridgeError('Set DITTO_SUBJECT to the authenticated Ditto account subject.')
  return {'policyId':POLICY_ID,'entries':{
@@ -85,9 +86,10 @@ def sync(cursor):
    try:
     if datetime.fromisoformat(previous)>datetime.fromisoformat(incoming):raise BridgeError('The snapshot is older than the Ditto state; state rollback is blocked.',409)
    except (ValueError,TypeError):raise BridgeError('The Ditto timestamp is invalid; review it before proceeding.',409)
-  if all(thing.get('features',{}).get(k)==v for k,v in candidate['features'].items()):return {'duplicate':True,'sourceTime':incoming,'message':'The snapshot already exists; duplicate update skipped.'}
+  owned_metadata={k:candidate['attributes'][k] for k in ['targetId','architectureProfile','stateContractVersion','stateKinds','lifecycle']}
+  if all(thing.get('attributes',{}).get(k)==v for k,v in owned_metadata.items()) and all(thing.get('features',{}).get(k)==v for k,v in candidate['features'].items()):return {'duplicate':True,'sourceTime':incoming,'message':'The snapshot already exists; duplicate update skipped.'}
   if not current['etag']:raise BridgeError('Ditto did not return an ETag; version-controlled synchronization is blocked.',409)
-  body={k:thing[k] for k in ['thingId','policyId','attributes','features'] if k in thing};body['features']={**thing.get('features',{}),**candidate['features']}
+  body={k:thing[k] for k in ['thingId','policyId','attributes','features'] if k in thing};body['features']={**thing.get('features',{}),**candidate['features']};body['attributes']={**thing.get('attributes',{}),**owned_metadata}
   client.request('PUT',path(),body,headers={'If-Match':current['etag']})
   verified=client.request('GET',path())['body']
   if any(verified.get('features',{}).get(k)!=v for k,v in candidate['features'].items()):raise BridgeError('Unable to verify the readback state.',502)
@@ -104,6 +106,14 @@ class Handler(SimpleHTTPRequestHandler):
   if not self.path.startswith('/api/'):return super().do_GET()
   try:
    self.trusted()
+   if self.path=='/api/architecture':return self.output(200,standards.PROFILE)
+   if self.path=='/api/state/health':return self.output(200,standards.health(DATA['rows'][-1]['ts']))
+   if urlsplit(self.path).path=='/api/observations':
+    try:
+     params=parse_qs(urlsplit(self.path).query,keep_blank_values=True)
+     if set(params)!={'cursor'} or len(params['cursor'])!=1:raise ValueError('One cursor is required')
+     return self.output(200,{'schemaVersion':standards.PROFILE['observationSchemaVersion'],'events':standards.observations(DATA,int(params['cursor'][0]),quality)})
+    except (ValueError,TypeError,KeyError) as e:raise BridgeError(str(e),400)
    if self.path=='/api/ditto/status':return self.output(200,status())
    if self.path=='/api/ditto/thing':return self.output(200,Ditto().request('GET',path())['body'])
    if self.path=='/api/health':return self.output(200,{'app':'aquatwin','bridgeVersion':'1.1.0','rows':len(DATA['rows'])})

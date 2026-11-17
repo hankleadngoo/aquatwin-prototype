@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aquatwin:schema:observation:1.0",
+  "title": "Project observation contract; not an ISO-prescribed encoding",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "source",
+    "type",
+    "time",
+    "subject",
+    "data"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "aquatwin-observation/1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string"
+    },
+    "type": {
+      "const": "aquatwin.observation.v1"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "subject": {
+      "const": "aquatwin:nuoibien-2"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "stateKind",
+        "targetId",
+        "siteId",
+        "sensorId",
+        "parameter",
+        "value",
+        "unit",
+        "phenomenonTime",
+        "receivedAt",
+        "qualityFlag",
+        "sourceAuthority",
+        "location",
+        "depthM",
+        "calibrationRef",
+        "provenance"
+      ],
+      "properties": {
+        "stateKind": {
+          "const": "observed"
+        },
+        "targetId": {
+          "const": "urn:aquatwin:station:nuoibien-2"
+        },
+        "siteId": {
+          "const": "NuoiBien_2"
+        },
+        "sensorId": {
+          "const": "nuoibienvien3"
+        },
+        "parameter": {
+          "enum": [
+            "temperature",
+            "conductivity",
+            "pH",
+            "DO",
+            "turbidity"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "phenomenonTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "receivedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "qualityFlag": {
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            9
+          ]
+        },
+        "sourceAuthority": {
+          "const": "nuoibienvien3"
+        },
+        "location": {
+          "type": "null"
+        },
+        "depthM": {
+          "type": "null"
+        },
+        "calibrationRef": {
+          "type": "null"
+        },
+        "provenance": {
+          "type": "object",
+          "required": [
+            "inputSnapshotId",
+            "sourceSnapshotSha256",
+            "mappingVersion",
+            "qcVersion",
+            "receivedAtStatus",
+            "sensorIdentityScope"
+          ],
+          "properties": {
+            "inputSnapshotId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sourceSnapshotSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "mappingVersion": {
+              "const": "salinity-conductivity-1.0"
+            },
+            "qcVersion": {
+              "type": "string"
+            },
+            "receivedAtStatus": {
+              "const": "unavailable_in_snapshot"
+            },
+            "sensorIdentityScope": {
+              "const": "acquisition_device_not_individual_probe"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "parameter": {
+                "const": "temperature"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "const": "°C"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "parameter": {
+                "const": "conductivity"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "const": "mS/cm"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "parameter": {
+                "const": "pH"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "const": ""
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "parameter": {
+                "const": "DO"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "const": "mg/L"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "parameter": {
+                "const": "turbidity"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "const": "NTU"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "qualityFlag": {
+                "const": 9
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

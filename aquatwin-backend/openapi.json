@@ -1,0 +1,178 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTwin local research gateway",
+    "version": "1.5.0",
+    "description": "Loopback-only; no production authentication or operational actuator API"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8770"
+    }
+  ],
+  "paths": {
+    "/api/architecture": {
+      "get": {
+        "summary": "Profile and registry",
+        "responses": {
+          "200": {
+            "description": "Successful project-contract response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Local Host/Origin rejected"
+          }
+        }
+      }
+    },
+    "/api/observations": {
+      "get": {
+        "summary": "Versioned observation envelope",
+        "responses": {
+          "200": {
+            "description": "Successful project-contract response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Local Host/Origin rejected"
+          }
+        },
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ]
+      }
+    },
+    "/api/state/health": {
+      "get": {
+        "summary": "Wall-clock freshness of snapshot latest reading",
+        "responses": {
+          "200": {
+            "description": "Successful project-contract response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Local Host/Origin rejected"
+          }
+        }
+      }
+    },
+    "/api/ditto/sync": {
+      "post": {
+        "summary": "Historical observed-state sync only",
+        "responses": {
+          "200": {
+            "description": "Successful project-contract response"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Local Host/Origin rejected"
+          },
+          "409": {
+            "description": "Source rollback, resource or concurrency guard"
+          },
+          "502": {
+            "description": "Ditto transport error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "cursor"
+                ],
+                "properties": {
+                  "cursor": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "summary": "/api/health",
+        "responses": {
+          "200": {
+            "description": "Successful result"
+          },
+          "403": {
+            "description": "Host/Origin rejected"
+          }
+        }
+      }
+    },
+    "/api/ditto/status": {
+      "get": {
+        "summary": "/api/ditto/status",
+        "responses": {
+          "200": {
+            "description": "Successful result"
+          },
+          "403": {
+            "description": "Host/Origin rejected"
+          }
+        }
+      }
+    },
+    "/api/ditto/thing": {
+      "get": {
+        "summary": "/api/ditto/thing",
+        "responses": {
+          "200": {
+            "description": "Successful result"
+          },
+          "403": {
+            "description": "Host/Origin rejected"
+          }
+        }
+      }
+    },
+    "/api/ditto/provision": {
+      "post": {
+        "summary": "/api/ditto/provision",
+        "responses": {
+          "200": {
+            "description": "Successful result"
+          },
+          "403": {
+            "description": "Host/Origin rejected"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "maxProperties": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

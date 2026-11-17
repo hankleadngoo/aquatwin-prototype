@@ -1,0 +1,177 @@
+{
+  "profileVersion": "aquatwin-observation-1.0",
+  "claim": "Architecture alignment work in progress; not ISO conformity or certification",
+  "scope": "Single observation station, historical replay; not a whole-farm behavioral twin",
+  "twinId": "aquatwin:nuoibien-2",
+  "siteId": "NuoiBien_2",
+  "deviceId": "nuoibienvien3",
+  "target": {
+    "id": "urn:aquatwin:station:nuoibien-2",
+    "type": "WaterQualityObservationStation",
+    "identityBasis": "Existing site and acquisition-device mapping; probe identities unconfirmed",
+    "location": null,
+    "depthM": null,
+    "calibrationRef": null
+  },
+  "entities": [
+    {
+      "id": "urn:aquatwin:site:NuoiBien_2",
+      "type": "ObservationSite"
+    },
+    {
+      "id": "urn:aquatwin:station:nuoibien-2",
+      "type": "WaterQualityObservationStation"
+    },
+    {
+      "id": "urn:aquatwin:device:nuoibienvien3",
+      "type": "AcquisitionDevice"
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "urn:aquatwin:station:nuoibien-2",
+      "predicate": "locatedAtSite",
+      "object": "urn:aquatwin:site:NuoiBien_2",
+      "validFrom": null,
+      "validTo": null,
+      "validityStatus": "unknown; snapshot mapping only"
+    },
+    {
+      "subject": "urn:aquatwin:device:nuoibienvien3",
+      "predicate": "providesObservationsFor",
+      "object": "urn:aquatwin:station:nuoibien-2",
+      "validFrom": null,
+      "validTo": null,
+      "validityStatus": "unknown; snapshot mapping only"
+    }
+  ],
+  "stateKinds": [
+    "observed",
+    "estimated",
+    "predicted",
+    "simulated",
+    "desired"
+  ],
+  "observationSchemaVersion": "aquatwin-observation/1.0",
+  "mappingVersion": "salinity-conductivity-1.0",
+  "parameters": {
+    "temperature": {
+      "unit": "°C",
+      "rawKey": "temperature",
+      "unitAuthority": "Project mapping; conductivity user-confirmed; other units GREEN-X documented"
+    },
+    "conductivity": {
+      "unit": "mS/cm",
+      "rawKey": "salinity",
+      "unitAuthority": "Project mapping; conductivity user-confirmed; other units GREEN-X documented"
+    },
+    "pH": {
+      "unit": "",
+      "rawKey": "pH",
+      "unitAuthority": "Project mapping; conductivity user-confirmed; other units GREEN-X documented"
+    },
+    "DO": {
+      "unit": "mg/L",
+      "rawKey": "DO",
+      "unitAuthority": "Project mapping; conductivity user-confirmed; other units GREEN-X documented"
+    },
+    "turbidity": {
+      "unit": "NTU",
+      "rawKey": "turbidity",
+      "unitAuthority": "Project mapping; conductivity user-confirmed; other units GREEN-X documented"
+    }
+  },
+  "synchronization": {
+    "mode": "historical-replay",
+    "ordering": "source event time",
+    "idempotency": "snapshot record id + parameter",
+    "staleAfterSeconds": 1800,
+    "receivedAt": null,
+    "watermark": null,
+    "clockQuality": "not_independently_verified",
+    "lateRecordPolicy": "Reject current-state rollback; revision history not implemented in this gateway"
+  },
+  "viewpoints": {
+    "foundational": [
+      "target identity",
+      "state kinds",
+      "historical synchronization"
+    ],
+    "functional": [
+      "observation adapter",
+      "QC",
+      "state projection",
+      "research model",
+      "user visualization"
+    ],
+    "implementation": [
+      "local REST gateway",
+      "Ditto adapter",
+      "static snapshot UI"
+    ],
+    "architecturePattern": [
+      "aquaculture observation specialization; manufacturing analogy only"
+    ]
+  },
+  "entities23247": {
+    "observableDomain": "Station and acquisition device (external to framework)",
+    "deviceCommunicationEntity": "Snapshot adapter; live field connector not present",
+    "digitalTwinEntity": "State projection, Ditto adapter and browser research model",
+    "userEntity": "Web operations workspace",
+    "crossSystemEntity": "Local gateway origin checks and Ditto policy; partial governance"
+  },
+  "interfaces": [
+    {
+      "path": "/api/architecture",
+      "method": "GET",
+      "role": "Profile and registry",
+      "view": "service"
+    },
+    {
+      "path": "/api/observations?cursor=N",
+      "method": "GET",
+      "role": "Versioned observation envelope",
+      "view": "access"
+    },
+    {
+      "path": "/api/state/health",
+      "method": "GET",
+      "role": "Wall-clock freshness of snapshot latest reading",
+      "view": "user"
+    },
+    {
+      "path": "/api/ditto/sync",
+      "method": "POST",
+      "role": "Historical observed-state sync only",
+      "view": "access"
+    }
+  ],
+  "models": [
+    {
+      "id": "water-scenario-1.0",
+      "implementation": "forecast-core.js",
+      "stateKind": "simulated",
+      "validationStatus": "exploratory_backtest_only",
+      "operationalUseAllowed": false,
+      "actuationAllowed": false,
+      "inputRequirements": [
+        "pinned snapshot",
+        "QC-passed history",
+        "explicit origin and horizon"
+      ],
+      "limitations": [
+        "univariate",
+        "no equipment response",
+        "uncalibrated P10-P90"
+      ]
+    }
+  ],
+  "gaps": [
+    "Full licensed standards clause review and signoff pending",
+    "Canonical registry is local single-target configuration, not platform registry",
+    "No probe-level metadata, calibration evidence or confirmed location/depth",
+    "No production authentication, revision database or edge recovery in this gateway",
+    "No live MinIO/TimescaleDB/FastAPI implementation in this checkout",
+    "No operational forecast validation or actuation"
+  ]
+}

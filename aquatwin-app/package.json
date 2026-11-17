@@ -1,1 +1,9 @@
-{"name": "aquatwin-observation-prototype", "private": true, "version": "1.4.0", "scripts": {"test": "node tests.cjs && node forecast-tests.cjs && node english-tests.cjs && python -m unittest test_bridge.py", "start": "python server.py"}}
+{
+  "name": "aquatwin-observation-prototype",
+  "private": true,
+  "version": "1.5.0",
+  "scripts": {
+    "test": "node tests.cjs && node forecast-tests.cjs && node english-tests.cjs && node standards-tests.cjs && python -m unittest test_bridge.py test_standards.py",
+    "start": "python server.py"
+  }
+}

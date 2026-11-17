@@ -1,0 +1,10 @@
+﻿Project_requirement,Standard_topic_not_normative_clause,Implementation_intent,Artifact,Evidence,Status
+AT-01,ISO/IEC 30188 foundational; ISO 23247-3 information,Declare station target and source relationships,dist/architecture-profile.json,test_standards.ContractTests.test_identity_units_provenance,implemented locally; field metadata incomplete
+AT-02,ISO 23247-2 functional/entity adaptation,Allocate software responsibilities,ARCHITECTURE_ALIGNMENT.md section 3; architecture profile,manual architecture review pending,documented; partial runtime
+AT-03,ISO 23247-3 information adaptation,"Validate observed-state identity, quantity and unit",standards.py; schemas/observation.schema.json,test_standards.ContractTests.test_reject_corruption,implemented; application rule
+AT-04,ISO 23247-4 exchange adaptation,Document local interfaces and information flow,openapi.json; server.py,test_bridge; API contract tests,implemented local subset
+AT-05,ISO/IEC 30188 synchronization,Prevent duplicate and older current-state writes,server.sync,test_bridge,implemented; no revision history
+AT-06,ISO/IEC 30188 implementation/models,Isolate research model and simulated state,dist/forecast-core.js; standards-core.js,standards-tests.cjs; forecast-tests.cjs,research only; independent validation pending
+AT-07,ISO/IEC 30188 lifecycle,Lifecycle management and operational release,architecture profile; ARCHITECTURE_ALIGNMENT.md,no acceptance test yet,gap: automated upgrade/rollback/retirement
+AT-08,ISO/IEC 30188 pattern viewpoint,Document aquaculture specialization and gaps,ARCHITECTURE_ALIGNMENT.md,independent review pending,provisional mapping; not certification
+AT-09,Project source/clock assurance,Compute freshness without modifying replay snapshot,standards.health; /api/state/health,test_standards.ContractTests.test_freshness_uses_wall_clock,implemented; clock calibration unknown

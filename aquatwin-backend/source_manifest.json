@@ -1,15 +1,19 @@
 {
   "origin": "aquatwin-app",
   "copied_source_sha256": {
-    "server.py": "f0b601289f4d7a2241dfcc3436d76b4e9fc565dc81a44b946835dfed8ab75dc4",
+    "server.py": "6068a96f30b61a1ee790475d49f14c33eaad04791cbd82f3cc2de167ec4d0562",
     "ditto_adapter.py": "a002b2ff993ee0bf0f16e8641d95c584766e3fdf90dd36a2a462efe92fb1764e",
-    "prepare_data.py": "ea1de00b5f14ebacf909917cbac780ff1821754ca341c09461360b8b4d32f687",
-    "test_bridge.py": "70169d3894be0b646d83d2ec01d48d0c253d04debb19297b5b267d2348e1c7ee"
+    "prepare_data.py": "de9580d3ffcdda3d3ba659ccb2ff9ea22bd15e5d9e9ebacc45bfe76efa644aa6",
+    "test_bridge.py": "70169d3894be0b646d83d2ec01d48d0c253d04debb19297b5b267d2348e1c7ee",
+    "standards.py": "8f5b9b739d4c82e4791ae39aa62d0e470d939696444f71f5b0356fa35fd4d8b2",
+    "test_standards.py": "2928f15d416677761528a309f9a8879bf92455563703a4148cf994b26c7ef3ee"
   },
   "changes": [
     "Independent data paths",
     "Backend-only HTTP root and 404 behavior",
     "Default port 8770 to avoid the existing app"
   ],
-  "data_records": 1333
+  "data_records": 1333,
+  "updated": "2026-11-17",
+  "architectureProfile": "aquatwin-observation-1.0"
 }

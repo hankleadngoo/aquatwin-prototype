@@ -63,3 +63,8 @@ Mock test không chứng minh đã kết nối thành công máy chủ Ditto th�
 Đây là local prototype server, không phải backend đã harden để mở trực tiếp ra Internet. Không có database nhật ký, đăng nhập người dùng, telemetry live hoặc lệnh thiết bị. Cơ chế QC/snapshot và chống lùi trạng thái/ETag được giữ từ app.
 
 Mô phỏng dự báo 24–48 giờ hiện chạy bằng JavaScript trong trình duyệt (`aquatwin-app/dist/forecast-core.js`), không phải backend Python, nên không được gán nhầm thành API dự báo của gói này. Nếu cần forecast API, phải triển khai thành một bước tiếp theo.
+
+
+## Architecture update 2026-11-17
+
+See `ARCHITECTURE_ALIGNMENT.md`, `standards-traceability.csv`, `openapi.json` and `schemas/observation.schema.json`. Versioned target profile: `dist/architecture-profile.json`. Research-only alignment with ISO/IEC 30188 and adapted ISO 23247 patterns; no complete conformity claim. New read-only APIs: `/api/architecture`, `/api/observations?cursor=100`, `/api/state/health`. Run `python -m unittest test_bridge.py test_standards.py`. The local web app adds Architecture & evidence under Tools & connections. No hosted deployment has been performed for this update.

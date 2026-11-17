@@ -7,3 +7,6 @@ __pycache__/
 .sites-checkout*/
 *.tar.gz
 .runtime/
+
+.browser-qa-standards/
+.edge-qa-standards/

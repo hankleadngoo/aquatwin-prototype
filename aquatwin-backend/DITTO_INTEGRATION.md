@@ -52,3 +52,8 @@ Không sao chép nguyên ví dụ bật LED sang điều khiển trang trại. S
 `node tests.cjs`: kiểm tra lõi QC/replay trước đó. Browser test bao gồm trang mới và trạng thái chưa cấu hình. Mock pass không chứng minh tích hợp bản phát hành Ditto thực đã thành công; cần thực hiện mục 3 trên môi trường có server.
 
 Đây là phần cập nhật trạng thái cho app ở workspace. prototype.md trong Downloads nhắc rule.md và pipeline khác không có tại workspace; không sửa đè hoặc tự nhận thay thế pipeline đó.
+
+
+## 2026-11-17 contract update
+
+Observed snapshots now declare target identity, contract/profile versions and per-value source provenance. Sync upgrades owned architecture metadata while preserving unrelated fields. Contracts are validated before projection. See ARCHITECTURE_ALIGNMENT.md. Credentials and deployment remain local-only.
